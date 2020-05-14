@@ -72,7 +72,7 @@ Pit Alex	Brad Guzan	London
 **Solución**
 
 ```sql
-SELECT * FROM tabla;
+PEGAR LA SOLUCIÓN SQL AQUÍ
 ```
 
 **Resultado de la consulta:**
