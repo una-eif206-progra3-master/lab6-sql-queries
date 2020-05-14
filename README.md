@@ -52,10 +52,7 @@ ord_no      purch_amt   ord_date    customer_id  salesman_id
 **Solución**
 
 ```sql
-SELECT salesman.name AS "Salesman",
-customer.cust_name, customer.city 
-FROM salesman,customer 
-WHERE salesman.city=customer.city;
+PEGAR LA SOLUCIÓN SQL AQUÍ
 ```
 
 **Resultado de la consulta:**
@@ -75,12 +72,7 @@ Pit Alex	Brad Guzan	London
 **Solución**
 
 ```sql
-SELECT a.cust_name AS "Customer Name", 
-a.city, b.name AS "Salesman", b.commission 
-FROM customer a 
-INNER JOIN salesman b 
-ON a.salesman_id=b.salesman_id 
-WHERE b.commission>.12;
+PEGAR LA SOLUCIÓN SQL AQUÍ
 ```
 
 **Resultado de la consulta:**
@@ -100,14 +92,7 @@ Jozy Altidor	Moscow		Paul Adam	0.13
 **Solución:**
 
 ```sql
-SELECT a.ord_no,a.ord_date,a.purch_amt,
-b.cust_name AS "Customer Name", b.grade, 
-c.name AS "Salesman", c.commission 
-FROM orders a 
-INNER JOIN customer b 
-ON a.customer_id=b.customer_id 
-INNER JOIN salesman c 
-ON a.salesman_id=c.salesman_id;
+PEGAR LA SOLUCIÓN SQL AQUÍ
 ```
 
 **Resultado de la consulta:**
@@ -133,12 +118,7 @@ ON a.salesman_id=c.salesman_id;
 **Solución:**
 
 ```sql
-SELECT a.cust_name,a.city,a.grade, 
-b.name AS "Salesman",b.city 
-FROM customer a 
-LEFT JOIN salesman b 
-ON a.salesman_id=b.salesman_id 
-order by a.customer_id;
+PEGAR LA SOLUCIÓN SQL AQUÍ
 ```
 
 **Resultado de la consulta:**
@@ -160,14 +140,7 @@ Geoff Cameron	Berlin		100	Lauson Hen	San Jose
 **Solución**
 
 ```sql
-SELECT a.cust_name,a.city, b.ord_no,
-b.ord_date,b.purch_amt AS "Order Amount", 
-c.name,c.commission 
-FROM customer a 
-LEFT OUTER JOIN orders b 
-ON a.customer_id=b.customer_id 
-LEFT OUTER JOIN salesman c 
-ON c.salesman_id=b.salesman_id;
+PEGAR LA SOLUCIÓN SQL AQUÍ
 ```
 
 **Resultado de la consulta:**
@@ -195,18 +168,8 @@ Julian Green	London		70012	2012-06-27	250.45		Nail Knite	0.13
 **Solución:**
 
 ```sql
-SELECT country.country_name_eng, COUNT(city.id) AS number_of_cities
-FROM country
-LEFT JOIN city ON country.id = city.country_id
-GROUP BY country.id, country.country_name_eng
-ORDER BY country.country_name_eng ASC;
+PEGAR LA SOLUCIÓN SQL AQUÍ
 ```
-
-> Let’s analyze the most important parts of this query:
->
-> - We’ve used LEFT JOIN (LEFT JOIN city ON country.id = city.country_id) because we need to include all countries, even those without any related city
-> - We must use COUNT(city.id) AS number_of_cities and not only COUNT(*) AS number_of_cities because COUNT(*) would count if there is a row in the result (LEFT JOIN creates a row no matter if there is related data in other table or not). If we count the city.id, we’ll get the number of related cities
-> - The last important thing is that we’ve used GROUP BY country.id, country.country_name_eng instead of using only GROUP BY country.country_name_eng. In theory (and most cases), grouping by name should be enough. This will work OK if the name is defined as UNIQUE. Still, including a primary key from the dictionary, in cases similar to this one, is more than desired
 
 **Resultado de la consulta:**
 
